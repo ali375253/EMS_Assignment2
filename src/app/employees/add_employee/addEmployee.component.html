@@ -1,0 +1,81 @@
+<form #employeeDetails="ngForm" (ngSubmit)="onSubmit()">
+	<div>
+		<label>
+			<span>First Name:</span>
+			<input type="text" id="firstName" name="firstName" [(ngModel)]='emp.firstName'/> 
+		</label>
+	</div>
+  <div>
+    <label>
+      <span>Last Name: </span>
+      <input type="text" id="lastName" name="lastName" [(ngModel)]='emp.lastName' />
+    </label>
+  </div>
+  <div>
+    <label>
+      <span>Email:</span>
+      <input type="email" id="email" name="email" [(ngModel)]='emp.email' /> 
+    </label>
+  </div>
+  <div>
+    <label>
+      <span>Contact Number:</span>
+      <input type="tel" id="phone" name="phone" [(ngModel)]='emp.contact'/> 
+    </label>
+  </div>
+  <div>
+    <label>
+      <span>Address:</span>
+      <textarea id="address" name="address" [(ngModel)]='emp.address'></textarea>
+    </label>
+  </div>
+  <div>
+    <label>
+      <span>Username:</span>
+      <input type="text" id="username" name="username" [(ngModel)]='emp.username'/>
+    </label>
+  </div>
+  <div>
+    <label>
+      <span>Password:</span>
+      <input type="password" id="password" name="password" [(ngModel)]='emp.password' />
+    </label>
+  </div>
+  <div>
+    <label>
+      <span>Gender:</span>
+      <input type="radio" id="male" name="gender" value="Male" [(ngModel)]='emp.gender' />Male 
+    </label> <br/>
+    <label>
+      <input type="radio" id="female" name="gender" value="Female" [(ngModel)]='emp.gender' />Female 
+    </label>
+  </div>
+  <div id="qualification_section">
+    <label>
+      <span>Qualification:</span>
+      <select id="qualification" name="qualification" [(ngModel)]='emp.qualification'>
+        <option *ngFor="let qualification of qualification_list" [value]='qualification' >{{qualification}}</option>
+      </select>   
+    </label>
+        </div>
+  <div id="experience_section">
+    <label>
+      <span>Experience:</span>
+      <select id="experience" name="experience"  [(ngModel)]='emp.experience'>
+        <option *ngFor="let experience of experience_list" [value]='experience' >{{experience}}</option>
+      </select>
+    </label>
+  </div>
+  <div id="coding_languages">
+    <span >Coding Languages :</span>
+    <label *ngFor="let language of language_list">
+      <span>
+        <input type="checkbox" [value]='language.name' [checked]='language.isEnabled' (change)='toggleValue(language)' /> {{language.name}}
+      </span>
+    </label>
+  </div>
+  <div>
+    <button type="submit" value="submit" name="submit">Submit</button>
+  </div>
+</form>
+<router-outlet></router-outlet>

@@ -1,0 +1,40 @@
+ 
+<table frame="border" rules="all">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Contact Number</th>
+      <th>Address</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Gender</th>
+      <th>Qualification</th>
+      <th>Experience</th>
+      <th>Coding Languages</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let employee of employeeList,let i=index'>
+      <td>{{ employee.firstName }}</td>
+      <td>{{ employee.lastName }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.contact }}</td>
+      <td>{{ employee.address}}</td>
+      <td>{{ employee.username }}</td>
+      <td>{{ employee.password }}</td>
+      <td>{{ employee.gender }}</td>
+      <td>{{ employee.qualification }}</td>
+      <td>{{ employee.experience }}</td>
+      <td>{{ languages[i] }}</td>
+      <td><button [value]='employee.id' name="edit" (click)="editEmployeeDetails(i)">Edit</button></td>
+      <td><button [value]='employee.id' name="delete" (click)="deleteEmployeeDetails(employee)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<footer>
+    <button value="add" name="add" (click)="addEmployeeDetails()">Add Employee</button>
+</footer>
